@@ -7,13 +7,9 @@ namespace ConsoleApp2
 	abstract class Question
 	{
 		public string Vraag { get; set; }
+		public string Antwoord { get; set; }
 		public int Moeilijkheidsgraad { get; set; }
 		public string Category { get; set; }
-
-		private void Display()
-		{
-			Console.WriteLine(Vraag);
-		}
 
 		public void PresentQuestion()
 		{
@@ -23,6 +19,7 @@ namespace ConsoleApp2
 			Console.WriteLine(CheckAnswer(response));
 		}
 
+		public abstract void Display();
 		public abstract string CheckAnswer(string response);
 	}
 
