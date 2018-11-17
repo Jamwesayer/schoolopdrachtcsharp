@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace ConsoleApp2
 {
@@ -6,7 +6,13 @@ namespace ConsoleApp2
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Hello World!");
+			ChoiceQuestion test = new ChoiceQuestion()
+			{
+				Vraag = "Test",
+				Moeilijkheidsgraad = 1,
+				Category = "Landen"
+			};
+			test.PresentQuestion();
 		}
 	}
 }
