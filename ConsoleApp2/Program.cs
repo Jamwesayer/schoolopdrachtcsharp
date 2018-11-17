@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace ConsoleApp2
 {
@@ -6,13 +7,23 @@ namespace ConsoleApp2
 	{
 		static void Main(string[] args)
 		{
-			ChoiceQuestion test = new ChoiceQuestion()
+			List<Question> questions = new List<Question>()
 			{
-				Vraag = "Test",
-				Moeilijkheidsgraad = 1,
-				Category = "Landen"
+				new OpenQuestion()
+				{
+					Vraag = "Wat is de hoofdstad van Belgie?",
+					Antwoord = "Brussel",
+					Moeilijkheidsgraad = 1,
+					Category = "Landen"
+				},
+				new OpenQuestion()
+				{
+					Vraag = "Welke taal wordt gesproken in Brazilie?",
+					Antwoord = "Spaans",
+					Moeilijkheidsgraad = 1,
+					Category = "Talen"
+				},
 			};
-			test.PresentQuestion();
 		}
 	}
 }
