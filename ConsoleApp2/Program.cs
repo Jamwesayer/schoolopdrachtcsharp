@@ -19,8 +19,8 @@ namespace ConsoleApp2
 				},
 				new ChoiceQuestion()
 				{
-					Vraag = "Welke taal wordt gesproken in Brazilie?",
-					Antwoord = "Spaans",
+					Vraag = "Welke taal wordt gesproken in Duitsland?",
+					Antwoord = "Duits",
 					Opties = new List<string>(){"Italiaans", "Nederlands", "Duits", "Spaans"},
 					Moeilijkheidsgraad = 3,
 					Category = "Talen"
@@ -34,15 +34,27 @@ namespace ConsoleApp2
 				},
 			};
 
+			// specifieke category
 			IEnumerable<Question> SpecificCatQuestion =
 				from question in questions
-				where question.Category.Contains("Talen")
+				where question.Category.Equals("Talen")
 				select question;
 			SpecificCatQuestion.ToList();
 
+			// specifieke moeilijksheidgraad
+			IEnumerable<Question> SpecificDifficultyQuestion =
+				from question in questions
+				where question.Moeilijkheidsgraad.Equals(1)
+				select question;
+			SpecificCatQuestion.ToList();
+
+			// georderd van makkelijk naar moeilijk
 			var SortByDifficulty = questions.OrderBy(q => q.Moeilijkheidsgraad).ToList();
 
-			foreach (Question question in SpecificCatQuestion)
+			// georderd op category
+			var SortByCategory = questions.OrderBy(q => q.Category).ToList();
+
+			foreach (Question question in SortByCategory)
 			{
 				question.PresentQuestion();
 			}

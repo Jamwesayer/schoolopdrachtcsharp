@@ -12,7 +12,7 @@ namespace ConsoleApp2
 		{
 			int I = 0;
 			Int32.TryParse(response, out I);
-			return (Antwoord == Opties[I - 1]) ? "Correct" : string.Format("Incorrect, the answer was {0}", response + 1);
+			return (Antwoord == Opties[I - 1]) ? "Correct" : string.Format("Incorrect, the answer was {0}", Opties.IndexOf(Antwoord) + 1);
 		}
 
 		public override void Display()
